@@ -1,21 +1,23 @@
-import Axios from 'axios';
-
 const SERVICE_URL = process.env.REACT_APP_SERVICE_URL || 'http://localhost:8080'
 
 class DataService {
 
   getData = () => {
     return new Promise((resolve, reject) => {
-      Axios.get(`${SERVICE_URL}/data`)
-        .then(response => resolve(response.data))
+      fetch(`${SERVICE_URL}/data`)
+        .then(response => resolve(response.json()))
         .catch(err => reject(err))
     })
   }
 
   uploadNameAndHeight = (name, height) => {
-    const config = { headers: { 'cache-control': 'no-cache', 'Access-Control-Request-Headers': '' }}
+    const config = {
+      method: 'POST',
+      headers: { 'cache-control': 'no-cache', 'content-type': 'application/json' },
+      body: JSON.stringify({ name, height })
+    }
     return new Promise((resolve, reject) => {
-      Axios.post(`${SERVICE_URL}/submit`, { name, height }, config)
+      fetch(`${SERVICE_URL}/submit`, config)
         .then(response => resolve(response.uploadId))
         .catch(err => reject(err))
     })
@@ -27,8 +29,11 @@ class DataService {
 
       const formData = new FormData()
       formData.append('file', files[0])
-      const config = { headers: { 'content-type': 'multipart/form-data' }}
-      Axios.post(`${SERVICE_URL}/${uploadId}`, formData, config)
+      const config = {
+        method: 'POST',
+        body: formData
+      }
+      fetch(`${SERVICE_URL}/${uploadId}`, config)
         .then(response => resolve())
         .catch(err => reject(err))
     })
