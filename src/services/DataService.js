@@ -5,7 +5,8 @@ class DataService {
   getData = () => {
     return new Promise((resolve, reject) => {
       fetch(`${SERVICE_URL}/data`)
-        .then(response => resolve(response.json()))
+        .then(response => response.json())
+        .then(data => resolve(data))
         .catch(err => reject(err))
     })
   }
@@ -18,7 +19,8 @@ class DataService {
     }
     return new Promise((resolve, reject) => {
       fetch(`${SERVICE_URL}/submit`, config)
-        .then(response => resolve(response.uploadId))
+        .then(response => response.json())
+        .then(data => resolve(data.uploadId))
         .catch(err => reject(err))
     })
   }

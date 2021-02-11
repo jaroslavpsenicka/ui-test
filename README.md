@@ -52,7 +52,8 @@ a v obsluze API, např. odeslání jména a výšky:
     }
     return new Promise((resolve, reject) => {
       fetch(`${SERVICE_URL}/submit`, config)
-        .then(response => resolve(response.uploadId))
+        .then(response => response.json())
+        .then(data => resolve(data.uploadId))
         .catch(err => reject(err))
     })
   }
