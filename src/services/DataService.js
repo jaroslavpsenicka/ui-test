@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const SERVICE_URL = 'http://localhost:3000'
+const SERVICE_URL = process.env.REACT_APP_SERVICE_URL || 'http://localhost:8080'
 
 class DataService {
 
@@ -13,7 +13,7 @@ class DataService {
   }
 
   uploadNameAndHeight = (name, height) => {
-    const config = { headers: { 'cache-control': 'no-cache' }}
+    const config = { headers: { 'cache-control': 'no-cache', 'Access-Control-Request-Headers': '' }}
     return new Promise((resolve, reject) => {
       Axios.post(`${SERVICE_URL}/submit`, { name, height }, config)
         .then(response => resolve(response.uploadId))

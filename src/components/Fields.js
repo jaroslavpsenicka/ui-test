@@ -11,8 +11,8 @@ export const renderField = ({
     <div>
       <input {...input} placeholder={label} type={type} />
       {touched &&
-        ((error && <span>{error}</span>) ||
-          (warning && <span>{warning}</span>))}
+        ((error && <span class='error'>{error}</span>) ||
+          (warning && <span class="warning">{warning}</span>))}
     </div>
   </div>
 )

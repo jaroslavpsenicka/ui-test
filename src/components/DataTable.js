@@ -23,6 +23,7 @@ const DataTable = () => {
         <tr>
           <th>Name</th>
           <th>Height</th>
+          <th>File</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,7 @@ const DataTable = () => {
           .map((item, i) => <tr key={`${item.name}-${item.height}-${i}`}>
             <td>{item.name}</td>
             <td>{item.height}</td>
+            <td>{item.file}</td>
           </tr>)     
       }
       </tbody>

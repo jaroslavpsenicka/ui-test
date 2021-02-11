@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders error 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DataTable>
+    <div>
+      ERR
+    </div>
+  </DataTable>
+</Provider>
+`;
+
+exports[`App renders no data 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DataTable>
+    <div />
+  </DataTable>
+</Provider>
+`;
+
+exports[`App renders one row 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DataTable>
+    <Table
+      data={
+        Array [
+          Object {
+            "height": 5,
+            "name": "A",
+          },
+        ]
+      }
+    >
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Height
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="A-5-0"
+          >
+            <td>
+              A
+            </td>
+            <td>
+              5
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </Table>
+  </DataTable>
+</Provider>
+`;
+
+exports[`App renders two rows, sorts properly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DataTable>
+    <Table
+      data={
+        Array [
+          Object {
+            "height": 5,
+            "name": "A",
+          },
+          Object {
+            "height": 2,
+            "name": "B",
+          },
+        ]
+      }
+    >
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Height
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="A-5-0"
+          >
+            <td>
+              A
+            </td>
+            <td>
+              5
+            </td>
+          </tr>
+          <tr
+            key="B-2-1"
+          >
+            <td>
+              B
+            </td>
+            <td>
+              2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </Table>
+  </DataTable>
+</Provider>
+`;
