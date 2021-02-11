@@ -4,13 +4,12 @@ const SERVICE_URL = 'http://localhost:3000'
 
 class DataService {
 
-  getFiles = () => {
+  getData = () => {
     return new Promise((resolve, reject) => {
       Axios.get(`${SERVICE_URL}/data`)
         .then(response => resolve(response.data))
         .catch(err => reject(err))
     })
-
   }
 
   uploadNameAndHeight = (name, height) => {

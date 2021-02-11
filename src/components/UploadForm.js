@@ -1,28 +1,19 @@
-import React from "react";
-import { Field, reduxForm, SubmissionError } from "redux-form";
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import { connect } from 'react-redux'
+
+import { submitForm } from '../redux/actions'
 import { required, maxLength, minValue, maxValue } from './Validators'
 import { renderField, fileField } from './Fields'
-import DataService from '../services/DataService'
 
 const maxLength100 = maxLength(100)
 const minValue0 = minValue(0)
 const maxValue500 = maxValue(500)
 
-const formSubmit = (data, submitOK) => {
-  console.log('submit', data)
-  const service = new DataService()
-  return service.uploadNameAndHeight(data.name, data.height)
-    .then(uploadId => service.uploadFiles(uploadId, data.file[0]))
-    .then(() => submitOK())
-    .catch(err => {
-      throw new SubmissionError({ _error: err.message })
-    })
-}
-
-const UploadForm = ({ handleSubmit, submitting, error, onSubmit }) => {
+const UploadForm = ({ handleSubmit, error }) => {
 
   return (
-    <form onSubmit={handleSubmit((data) => formSubmit(data, onSubmit))}>
+    <form onSubmit={handleSubmit}>
       <Field
         name="name"
         type="text"
@@ -44,16 +35,16 @@ const UploadForm = ({ handleSubmit, submitting, error, onSubmit }) => {
         label="File"
         component={fileField}
       />
-      {error && <div>{error}</div>}
-      <div>
-        <button type="submit" disabled={submitting}>
-          Submit
-        </button>
-      </div>
+      { error && <div>{error}</div> }
     </form>
   );
 };
 
-export default reduxForm({
-  form: "upload",
-})(UploadForm);
+const submit = (data, dispatch) => {
+  dispatch(submitForm(data)) 
+}
+
+export default connect()(reduxForm({
+  form: "upload", 
+  onSubmit: submit
+})(UploadForm));
