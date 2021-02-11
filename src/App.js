@@ -9,9 +9,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <h2>Form</h2>
       <UploadForm />
       <SubmitButton />
       <SubmitResult />
+      <h2>Data</h2>
       <DataTable />
     </div>
   );
