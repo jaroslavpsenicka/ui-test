@@ -9,7 +9,7 @@ import DataTable from './DataTable';
 
 const mockStore = configureMockStore([thunk])
 
-describe('App', () => {
+describe('DataTable', () => {
 
   it('renders no data', () => {
     const store = mockStore({ data: {} })
