@@ -58,4 +58,6 @@ a v obsluze API, např. odeslání jména a výšky:
     })
   }
 ```
+## Alternativní řešení
+V jednoduchém případě jako je tento by asi dostačovalo použití Context API, které by drželo načtená data a publikovalo metodu pro reload dat. Tuto by pak volal synchronně formulář.
    
