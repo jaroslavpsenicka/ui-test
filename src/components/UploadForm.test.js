@@ -10,7 +10,7 @@ import SubmitButton from './SubmitButton';
 
 const mockStore = configureMockStore([thunk])
 
-describe('App', () => {
+describe('UploadForm', () => {
 
   var store
 
