@@ -3,12 +3,13 @@ import { Field, reduxForm } from "redux-form"
 import { connect } from 'react-redux'
 
 import { submitForm } from '../redux/actions'
-import { required, maxLength, minValue, maxValue } from './Validators'
+import { required, maxLength, minValue, maxValue, maxFileSize } from './Validators'
 import { renderField, fileField } from './Fields'
 
 const maxLength100 = maxLength(100)
 const minValue0 = minValue(0)
 const maxValue500 = maxValue(500)
+const maxFileSize10M = maxFileSize(10)
 
 const UploadForm = ({ handleSubmit, error }) => {
 
@@ -34,6 +35,7 @@ const UploadForm = ({ handleSubmit, error }) => {
         type="file"
         label="File"
         component={fileField}
+        validate={[maxFileSize10M]}
       />
       { error && <div>{error}</div> }
     </form>
