@@ -19,7 +19,7 @@ export const submitForm = (data) => dispatch => {
   dispatch({ type: SUBMIT_FORM_REQUEST, payload: data })
   const service = new DataService()
   return service.uploadNameAndHeight(data.name, data.height)
-    .then(uploadId => service.uploadFiles(uploadId, data.file[0]))
+    .then(uploadId => service.uploadFiles(uploadId, data.file))
     .then(() => {
       dispatch({ type: SUBMIT_FORM_SUCCESS, payload: data })
       dispatch(getData())})
