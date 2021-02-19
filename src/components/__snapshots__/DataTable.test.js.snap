@@ -73,6 +73,9 @@ exports[`App renders one row 1`] = `
             <th>
               Height
             </th>
+            <th>
+              File
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -85,6 +88,7 @@ exports[`App renders one row 1`] = `
             <td>
               5
             </td>
+            <td />
           </tr>
         </tbody>
       </table>
@@ -130,6 +134,9 @@ exports[`App renders two rows, sorts properly 1`] = `
             <th>
               Height
             </th>
+            <th>
+              File
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -142,6 +149,7 @@ exports[`App renders two rows, sorts properly 1`] = `
             <td>
               5
             </td>
+            <td />
           </tr>
           <tr
             key="B-2-1"
@@ -152,6 +160,7 @@ exports[`App renders two rows, sorts properly 1`] = `
             <td>
               2
             </td>
+            <td />
           </tr>
         </tbody>
       </table>

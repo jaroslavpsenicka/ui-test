@@ -4,20 +4,34 @@ export const renderField = ({
   input,
   label,
   type,
-  meta: { touched, error, warning },
+  meta: { touched, error, warning }
 }) => (
   <div>
     <label>{label}</label>
     <div>
       <input {...input} placeholder={label} type={type} />
       {touched &&
-        ((error && <span class='error'>{error}</span>) ||
-          (warning && <span class="warning">{warning}</span>))}
+        ((error && <span className='error'>{error}</span>) ||
+          (warning && <span className="warning">{warning}</span>))}
     </div>
   </div>
 )
 
-export const fileField = (field) => {
-  delete field.input.value; 
-  return <input type="file" {...field.input} />;
+export const fileField = ({
+  input,
+  label,
+  meta: { touched, error, warning }
+}) => {
+  delete input.value; 
+  return (
+    <div>
+      <label>{label}</label>
+      <div>
+        <input type="file" {...input} />
+        {touched &&
+        ((error && <span className='error'>{error}</span>) ||
+          (warning && <span className="warning">{warning}</span>))}
+      </div>
+    </div>
+  )
 }
